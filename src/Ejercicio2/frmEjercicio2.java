@@ -6,6 +6,7 @@
 package Ejercicio2;
 
 import Menu.frmMenu;
+import java.text.DecimalFormat;
 
 /**
  *
@@ -13,11 +14,20 @@ import Menu.frmMenu;
  */
 public class frmEjercicio2 extends javax.swing.JFrame {
 
+    clsArea Area = new clsArea();
+    clsPerimetro Perimetro = new clsPerimetro();
+
     /**
      * Creates new form frmEjercicio2
      */
     public frmEjercicio2() {
         initComponents();
+        inicio();
+        lblOpc1.setText("Radio: ");
+        txtOpc1.setText("");
+        lblOpc1.setVisible(true);
+        txtOpc1.setVisible(true);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -29,42 +39,193 @@ public class frmEjercicio2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        lblOpc1 = new javax.swing.JLabel();
+        txtOpc1 = new javax.swing.JTextField();
+        btnCalcular = new javax.swing.JButton();
+        btnCalcular1 = new javax.swing.JButton();
+        lblOpc2 = new javax.swing.JLabel();
+        txtOpc2 = new javax.swing.JTextField();
+        cmbFigura = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        lblResultado = new javax.swing.JLabel();
+        txtArea = new javax.swing.JTextField();
+        lblResultado1 = new javax.swing.JLabel();
+        txtPerimetro = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        lblOpc1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        lblOpc1.setText("Radio: ");
+
+        txtOpc1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        txtOpc1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        btnCalcular.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        btnCalcular.setText("Regresar");
+        btnCalcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnCalcularActionPerformed(evt);
             }
         });
+
+        btnCalcular1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        btnCalcular1.setText("Calcular");
+        btnCalcular1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalcular1ActionPerformed(evt);
+            }
+        });
+
+        lblOpc2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        lblOpc2.setText("Area: ");
+
+        txtOpc2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        txtOpc2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        cmbFigura.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        cmbFigura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Circulo", "Rectangulo" }));
+        cmbFigura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbFiguraActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel3.setText("Selecciona una figura");
+
+        lblResultado.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        lblResultado.setText("Area: ");
+
+        txtArea.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        txtArea.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        lblResultado1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        lblResultado1.setText("Perimetro: ");
+
+        txtPerimetro.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        txtPerimetro.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(264, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(63, 63, 63))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblOpc2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblOpc1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)
+                            .addComponent(lblResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblResultado1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnCalcular1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(btnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtOpc1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbFigura, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtOpc2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtArea, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPerimetro, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(97, 97, 97))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(225, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(52, 52, 52))
+                .addGap(62, 62, 62)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbFigura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblOpc1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtOpc1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblOpc2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtOpc2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblResultado1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPerimetro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCalcular1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
         frmMenu menu = new frmMenu();
         menu.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnCalcularActionPerformed
+
+    private void btnCalcular1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcular1ActionPerformed
+       DecimalFormat df = new DecimalFormat("#.00");
+        if (cmbFigura.getSelectedIndex() == 0) {
+            txtArea.setText(String.valueOf(df.format(Area.getAreaCirculo(Double.parseDouble(txtOpc1.getText())))));
+            txtPerimetro.setText(String.valueOf(df.format(Perimetro.getPerimetroCirculo(Double.parseDouble(txtOpc1.getText())))));
+        } else {
+            txtArea.setText(String.valueOf(df.format(Area.getAreaRectangulo(Double.parseDouble(txtOpc1.getText()), Double.parseDouble(txtOpc2.getText())))));
+            txtPerimetro.setText(String.valueOf(df.format(Perimetro.getPerimetroRectangulo(Double.parseDouble(txtOpc1.getText()), Double.parseDouble(txtOpc2.getText())))));
+        }
+        txtArea.setVisible(true);
+        txtPerimetro.setVisible(true);
+        lblResultado.setVisible(true);
+        lblResultado1.setVisible(true);
+    }//GEN-LAST:event_btnCalcular1ActionPerformed
+
+    private void cmbFiguraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbFiguraActionPerformed
+        inicio();
+        if (cmbFigura.getSelectedIndex() == 0) {
+            lblOpc1.setText("Radio: ");
+            txtOpc1.setText("");
+            lblOpc1.setVisible(true);
+            txtOpc1.setVisible(true);
+        } else {
+            lblOpc1.setText("Base: ");
+            txtOpc1.setText("");
+            lblOpc2.setText("Altura: ");
+            txtOpc2.setText("");
+            lblOpc1.setVisible(true);
+            lblOpc2.setVisible(true);
+            txtOpc1.setVisible(true);
+            txtOpc2.setVisible(true);
+        }
+
+    }//GEN-LAST:event_cmbFiguraActionPerformed
+
+    public void inicio() {
+        lblOpc1.setVisible(false);
+        lblOpc2.setVisible(false);
+        lblResultado.setVisible(false);
+        lblResultado1.setVisible(false);
+        txtPerimetro.setVisible(false);
+        txtPerimetro.setEnabled(false);
+        txtOpc1.setVisible(false);
+        txtOpc2.setVisible(false);
+        txtArea.setVisible(false);
+        txtArea.setEnabled(false);
+        txtArea.setText("");
+        txtPerimetro.setText("");
+    }
 
     /**
      * @param args the command line arguments
@@ -102,6 +263,17 @@ public class frmEjercicio2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton jButton1;
+    public javax.swing.JButton btnCalcular;
+    public javax.swing.JButton btnCalcular1;
+    public javax.swing.JComboBox<String> cmbFigura;
+    public javax.swing.JLabel jLabel3;
+    public javax.swing.JLabel lblOpc1;
+    public javax.swing.JLabel lblOpc2;
+    public javax.swing.JLabel lblResultado;
+    public javax.swing.JLabel lblResultado1;
+    public javax.swing.JTextField txtArea;
+    public javax.swing.JTextField txtOpc1;
+    public javax.swing.JTextField txtOpc2;
+    public javax.swing.JTextField txtPerimetro;
     // End of variables declaration//GEN-END:variables
 }
